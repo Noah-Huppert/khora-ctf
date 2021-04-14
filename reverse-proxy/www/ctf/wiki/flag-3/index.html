@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+	    <title>Flag 3 Guide</title>
+
+	    <link rel="stylesheet" href="/styles.css">
+
+	    <style>
+	    </style>
+	</head>
+
+	<body>
+	    <h1>Khôra CTF</h1>
+	    <p>By Noah Huppert</p>
+
+	    <section>
+		   <h2>Flag 3 Guide</h2>
+
+		   <details>
+			  <summary>Target Hint 0</summary>
+
+			  You can find the target using the backdoor from flag 2.
+
+			  <details>
+				 <summary>Target Hint 1</summary>
+
+				 Look at the files on the backdoor machine.
+
+				 <details>
+					<summary>Target Hint 2</summary>
+
+					Look in the <code>/home/backdoor/www</code> directory.
+
+					<details>
+					    <summary>Target Hint 3</summary>
+
+					    The <code>sitemap</code>, <code>.htpasswd</code>, and <code>forgotpassword</code> files in the <code>/home/backdoor/www/</code> directory provide all the information you need.
+
+					    <details>
+						   <summary>Target Solution</summary>
+
+						   You must gain access to the machine running on <code>127.0.0.1:1112</code>.
+					    </details>
+					</details>
+				 </details>
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Hint 0</summary>
+
+			  HTTP authentication details for the target are present on the backdoor machine.
+
+			  <details>
+				 <summary>Flag Hint 1</summary>
+
+				 On the backdoor machine, in the <code>/home/backdoor/www/</code> directory, the <code>.htpasswd</code> file indicates we must login as user <code>admin</code>. While the <code>forgotpassword</code> file indicates we must use the password <code>wetakecustomersecurityveryseriously</code>.
+
+				 Login to the target and look around.
+
+				 <details>
+					<summary>Flag Hint 2</summary>
+
+					The target server is running phpFileManager 9.8.
+
+					<details>
+					    <summary>Flag Hint 3</summary>
+
+					    Check out the "Execute Command" button.
+
+					    <details>
+						   <summary>Flag Hint 4</summary>
+
+						   Try looking at the root directory using the "Execute Command" button.
+
+						   <details>
+							  <summary>Flag Hint 5</summary>
+
+							  The target machine is running phpFileManager 9.8. This version is known to have remote code execution issues. Although a Metasploit module exists for this software it will not work due to the constraints Docker networking puts on our environment. However this doesn't mean that we can't still execute commands which we want.
+							  <br /><br />
+							  The phpFileManager software has an "Execute Command" button. You can enter any command and it will display the result. Try listing files in the root directory by running command <code>ls /</code>. You will see that there is a directory named <code>/customer-payment-info</code>. Try listing the contents of this directory with the "Execute Command" button and the <code>ls /customer-payment-info</code> command. As you can see we are able to successfully list its contents. Within this directory you can see the <code>this-is-flag-3.txt</code> and <code>creditcards</code> files. 
+						   </details>
+					    </details>
+					</details>
+				 </details>
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Solution</summary>
+
+			  Use the "Execute Command" button on the phpFileManager dashboard to view the <code>/customer-payment-info/</code> directory.
+		   </details>
+	    </section>
+
+	    <section>
+		   <a href="/ctf/wiki">[wiki]</a>
+		   <a href="/ctf/letter-of-engagement.html">[letter]</a>
+		   <a href="/ctf/wiki/tools.html">[tools]</a>
+		   <a href="/ctf/wiki/flag-0/">[flag 0]</a>
+		   <a href="/ctf/wiki/flag-1/">[flag 1]</a>
+		   <a href="/ctf/wiki/flag-2/">[flag 2]</a>
+		   <a href="/ctf/wiki/flag-3/">[flag 3]</a>
+	    </section>
+	</body>
+</html>

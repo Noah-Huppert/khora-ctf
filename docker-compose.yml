@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+  workbench:
+    build: ./workbench
+    ports:
+      - "4444:4444"
+    volumes:
+      - "./workbench/workspace:/opt/ctf-workbench"
+  reverse-proxy:
+    image: nginx:1.19.9
+    ports:
+      - "1111:1111"
+    volumes:
+      - "./reverse-proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
+      - "./reverse-proxy/www/:/var/www/"
+  sshd:
+    build: ./sshd
+    ports:
+      - "22:22"
+    volumes:
+      - "./php-file-manager/www:/var/www"
+  php-file-manager:
+    build: ./php-file-manager
+    ports:
+      - "1112:1112"
+    volumes:
+      - "./php-file-manager/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
+      - "./php-file-manager/www/:/var/www/"
+  php-fpm:
+    image: php:7.3-fpm
+    privileged: true
+    ports:
+      - "9000:9000"
+    volumes:
+      - "./php-file-manager/www/index.php:/var/www/html/index.php"
+      - "./php-fpm/customer-payment-info/:/customer-payment-info/"
+      - "./php-file-manager/www/:/etc/nginx/html/"

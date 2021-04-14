@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+
+	    <title>CTF Home</title>
+
+	    <link rel="stylesheet" href="/styles.css">
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+	    <h1>Khôra CTF</h1>
+	    <p>By Noah Huppert</p>
+
+	    <section>
+		   <a href="/ctf/wiki">[wiki]</a>
+		   <a href="/ctf/letter-of-engagement.html">[letter]</a>
+		   <a href="/ctf/wiki/tools.html">[tools]</a>
+		   <a href="/ctf/wiki/flag-0/">[flag 0]</a>
+		   <a href="/ctf/wiki/flag-1/">[flag 1]</a>
+		   <a href="/ctf/wiki/flag-2/">[flag 2]</a>
+		   <a href="/ctf/wiki/flag-3/">[flag 3]</a>
+	    </section>
+
+	    <section>
+		   <h2>Introduction</h2>
+
+		   <p>
+			  <h3>Welcome</h3>
+			  Welcome to my container based capture the flag (CTF). I hope you have fun and maybe learn a few things along the way.
+			  <br /><br />
+			  Containers are a very popular emerging technology in the industry right now. They offer many benefits during the product lifecycle from development to production and more. Although you may not be familiar with containers don't worry! One of my goals is to show you that the process of testing the security of a container based infrastructure is similar to that of traditional web systems with which we have experimented.
+
+			  <h3>CTF Name</h3>
+			  Every technology project needs a "cool" name, usually something greek or mythology related. Khôra was a term used by the ancient Greek philospher Plato to describe a type of seperated space. Containers are also a sort of seperated space.
+
+			  <h3>CTF Structure</h3>
+			  This capture the flag guides you through the process of a complete customer engagement with a fake company. You will be refered to as "ACME Pen Testing" and the company is named "ACME Company". To start you will be given a fake letter of engagement from the company. From this you will find flags throughout this company's infrastructure. Flags will be clearly visible right after you gain access to a system. They will all mention "This is CTF flag x!". 
+			  <br /><br />
+			  If you want to be a purist the letter of engagement should be enough to help you solve the entire puzzle. However each flag will be accompanied by a guide on this wiki website. With varrying levels of hints available, including the complete solutions. Resources under the <code>/ctf/</code> directory on this server are specifically for helping facilitate the CTF, don't scan them or look too much into anything in this directory. All the flags are elsewhere.
+			  <br /><br />
+			  Every flag guide on this wiki starts with all information collapsed and hidden. Simply click on the text or the little triangle to expand the information.
+			  <br />
+			  
+			  Here, try it out:
+			  
+			  <details>
+				 <summary>Click me to expand this section</summary>
+
+				 See how this text just appeared when this section was "expanded"?
+
+				 <details>
+					<summary>Click me to expand again!</summary>
+
+					These sections can be nested...
+				 </details>
+			  </details>
+
+			  This is done so people would not see any spoilers. Sections contain increasingly reveal hints, followed by solutions. Each guide walks you through the process of gathering information, identifying a target, and exploiting the target to obtain the flag.
+
+			  <h3 id="technical-details">Technical Details</h3>
+
+			  This capture the flag is meant to be run using Docker Compose. It can be accessed from any machine which can talk to the host machine running Docker Compose. A Docker container named <code>workbench</code> is provided pre-setup with Kali Linux + Metasploit + all the tools you need to complete this CTF. Open a bash console into this container by running <code>docker-compose exec workbench bash</code>, see <a href="/ctf/wiki/tools.html">tools</a> for more.
+			  <br /> <br />
+			  Docker Compose creates a subnet for the containers in this CTF. The ID of this Docker Compose subnet changes based on your computer. Inside the <code>workbench</code> container it is easy to determine the subnet ID, simply run <code>ip addr show eth0</code>. This subnet will be accessible from inside and outside the containers. On your host machine traffic can be sent to this subnet via loopback <code>127.0.0.1</code>. This CTF will refer to resources as being on <code>127.0.0.1</code>, however you should replace this subnet ID with whatever subnet your containers are running on.
+
+			  <h3>Disclaimer</h3>
+			  As I'm sure you're aware: hacking  infrastructure which isn't yours is illegal. Be sure to know is and isn't part of this CTF. See <a href="#technical-details">technical details</a> if you are unsure. 
+
+			  <h3>CTF Index</h3>
+			  Index of available CTF resources:
+
+			  <ol>
+				 <li>
+					<a href="/ctf/letter-of-engagement.html">
+					    Letter of Engagement
+					</a>
+				 </li>
+
+				 <li>
+					<a href="/ctf/wiki/tools.html">
+					    Provided Tools
+					</a>
+				 </li>
+
+				 <li>
+					<a href="/ctf/wiki/flag-0/index.html">
+					    Flag 0 Guide
+					</a>
+				 </li>
+
+				 <li>
+					<a href="/ctf/wiki/flag-1/index.html">
+					    Flag 1 Guide
+					</a>
+				 </li>
+
+				 <li>
+					<a href="/ctf/wiki/flag-2/">Flag 2 Guide</a>
+				 </li>
+
+				 <li>
+					<a href="/ctf/wiki/flag-3/">Flag 3 Guide</a>
+				 </li>
+			  </ol>
+		   </p>
+	    </section>
+	</body>
+</html>

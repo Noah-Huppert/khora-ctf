@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+	    <title>Flag 1 Guide</title>
+
+	    <link rel="stylesheet" href="/styles.css">
+
+	    <style>
+	    </style>
+	</head>
+
+	<body>
+	    <h1>Khôra CTF</h1>
+	    <p>By Noah Huppert</p>
+
+	    <section>
+		   <h2>Flag 1 Guide</h2>
+
+		   <details>
+			  <summary>Target Hint 0</summary>
+
+			  Look at the ACME Company Customer Dashboard.
+			  
+
+			  <details>
+				 <summary>Target Solution</summary>
+				 The <a href="/acme-company/customer-dashboard">ACME Company Customer Dashboard</a> contains a cryptic message to customers which you must decode.
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Hint 0</summary>
+
+			  What kind of code do you think the customer dashboard uses? Do you think it is actually "state of the art" encryption?
+
+			  <details>
+				 <summary>Flag Hint 1</summary>
+
+				 The code is a Caesar Cipher.
+
+				 <details>
+					<summary>Flag Hint 2</summary>
+
+					Caesar ciphers a very vulnerable to brute force attacks, and there are lots of free Caesar cipher brute force programs online: <a href="https://www.dcode.fr/caesar-cipher">like this one</a>.
+
+					<details>
+					    <summary>Flag Hint 3</summary>
+					    
+					    The code on the ACME Company Customer Dashboard is a Caesar Cipher. This type of cipher was invented a very long time ago. Encryption has improved a lot since then... Due to Caesar Cipher's small key space they are very vulnerable to brute force attacks.
+					    <br /><br />
+					    An attacker can easily crack a Caesar Cipher by trying all possibly keys, and then see which decrypted results contain English words. This is a simple coding exercise if you would like to try. <a href="https://www.dcode.fr/caesar-cipher">This online tool also performs this process</a>. Simply enter the secret code into the "Caesar shifted ciphertext" field. Click the "Test all possible shifts (brute-force attack)" check box. Then hit the "Decrypt Caesar Code" button. Wait a few seconds and on the left there will be a list of all the brute forced results. Look through this list and you will see that the tool has automatically put results with English words at the top.
+					</details>
+				 </details>
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Solution</summary>
+
+			  The password is <code>averylongpasswordthatyoucouldntbruteforce</code>. Go to <a href="/acme-company/images/">/acme-company/images/</a> and login with this password and the username <code>customer</code>.
+		   </details>
+	    </section>
+
+	    <section>
+		   <a href="/ctf/wiki">[wiki]</a>
+		   <a href="/ctf/letter-of-engagement.html">[letter]</a>
+		   <a href="/ctf/wiki/tools.html">[tools]</a>
+		   <a href="/ctf/wiki/flag-0/">[flag 0]</a>
+		   <a href="/ctf/wiki/flag-1/">[flag 1]</a>
+		   <a href="/ctf/wiki/flag-2/">[flag 2]</a>
+		   <a href="/ctf/wiki/flag-3/">[flag 3]</a>
+	    </section>
+	</body>
+</html>

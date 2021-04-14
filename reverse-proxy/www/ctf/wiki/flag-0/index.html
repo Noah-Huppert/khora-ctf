@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+	    <link rel="stylesheet" href="/styles.css">
+
+	    <title>Flag 0 Guide</title>
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+	    <h1>Khôra CTF</h1>
+	    <p>By Noah Huppert</p>
+
+	    <section>
+		   <h2>Flag 0 Guide</h2>
+
+		   <details>
+			  <summary>Target Hint 0</summary>
+
+			  Check the <a href="/ctf/letter-of-engagement.html">Letter of Engagement</a> for any websites.
+
+			  <details>
+				 <summary>Target Hint 1</summary>
+
+				 The <a href="/acme-company/home.html">ACME Company web page</a> is linked in the footer of the letter of engagement.
+				 <details>
+					<summary>Target Solution</summary>
+
+					You must  try to break into the customer dashboard of ACME company. This is located at <a href="/acme-company/customer-dashboard/">/acme-company/customer-dashboard/</a>
+				 </details>
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Hint 0</summary>
+
+			  The ACME Company customer dashboard requires a user and password.
+
+			  <details>
+				 <summary>Flag Hint 1</summary>
+
+				 Check to see if there are any other files in the <code>/acme-company/</code> web server directory.
+
+				 <details>
+					<summary>Flag Hint 2</summary>
+
+					The web server lists all files in the <code>/acme-company/</code> directory. Simply navigate to <a href="/acme-company/">/acme-company/</a>. Do you see any files that look interesting?
+
+					<details>
+					    <summary>Flag Hint 3</summary>
+
+					    You can see the <code>/acme-company/customer-dashboard.htpasswd</code> file is visible and available to download. This is a password hash file. Perhaps it contains the passwords to something important. See if you can crack it.
+
+					    <details>
+						   <summary>Flag Hint 4</summary>
+
+						   The <code>/acme-company/customer-dashboard.htpasswd</code> file can be cracked using John the Ripper. We can see that it contains an entry for a user named <code>admin</code>.
+						   <br /><br />
+						   To crack with John the Ripper we need a word list. The <code>cewl</code> tool can be used to do this. Scan the ACME Company home page and make it a word list:
+
+						   <pre>
+							  <code>
+cewl --write ctf-wordlist.txt http://192.168.20.20:1111/acme-company/
+							  </code>
+						   </pre>
+
+						   This will generate a word list based off of the words on the ACME company web page. Next use John the Ripper on this downloaded htpasswd file with our word list:
+
+						   <pre>
+							  <code>
+john --wordlist ctf-wordlist.txt customer-dashboard.htpasswd
+							  </code>
+						   </pre>
+
+						   Running John the Ripper will give you the login information.
+					    </details>
+					</details>
+				 </details>
+			  </details>
+		   </details>
+
+		   <details>
+			  <summary>Flag Solution</summary>
+
+			  The login to <a href="/acme-company/customer-dashboard/">/acme-company/customer-dashboard/</a> is username <code>admin</code> with password <code>money</code>.
+		   </details>
+	    </section>
+
+	    <section>
+		   <a href="/ctf/wiki">[wiki]</a>
+		   <a href="/ctf/letter-of-engagement.html">[letter]</a>
+		   <a href="/ctf/wiki/tools.html">[tools]</a>
+		   <a href="/ctf/wiki/flag-0/">[flag 0]</a>
+		   <a href="/ctf/wiki/flag-1/">[flag 1]</a>
+		   <a href="/ctf/wiki/flag-2/">[flag 2]</>a
+		   <a href="/ctf/wiki/flag-3/">[flag 3]</a>
+	    </section>
+	</body>
+</html>

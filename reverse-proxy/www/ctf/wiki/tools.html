@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+	    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+	    <title>Provided Tools</title>
+
+	    <link rel="stylesheet" href="/styles.css">
+
+		<style>
+		</style>
+	</head>
+
+	<body>
+	    <h1>Khôra CTF</h1>
+	    <p>By Noah Huppert</p>
+
+	    <section>
+		   <h2>Provided Tools</h2>
+
+		   <p>
+			  <h3>Workbench</h3>
+			  A container with Kali Linux configured with all the tools needed to complete this CTF is provided. It is called the workbench container. You can open a bash session in this container by running:
+
+			  <pre>
+				 <code>
+docker-compose exec workbench bash
+				 </code>
+			  </pre>
+
+			  <h4>Directories</h4>
+			  The <code>/opt/ctf-workbench</code> directory in the container is mapped to <code>./workbench/workspace</code> on your host machine in this CTF's directory.
+
+			  <h4>Networking</h4>
+			  Since you are working with containers you must interact with the Docker Compose network. All CTF containers will be running on this network with different IPs. This network is just like any other network you have encountered. Determine the Docker Compose subnet ID by running <code>ip addr show eth0</code>.
+			  <br /><br />
+			  When writing this CTF I could not know what your Docker Compose subnet ID would be, as it changes on everyone's device. As a result I refered to the Docker Compose network as <code>127.0.0.1</code> in the CTF materials. If you see this IP just remember to replace it with your Docker Compose subnet.
+
+			  <h4>Metasploit</h4>
+			  Metasploit is installed in the <code>workbench</code>container. However you cannot use the <code>msfdb run</code> command which you may be used to. As <code>msfdb run</code> utilizes a tool named systemd which is not available inside containers.
+			  Instead you must use alternative commands to start Metasploit.
+
+			  <h5>Setup Metasploit Database</h5>
+			  You should only need to do this the first time you start Metasploit, or if Metasploit gives you an error message related to the database not being setup.
+			  
+			  <pre>
+				 <code>
+service postgresql start
+msfdb reinit
+				 </code>
+			  </pre>
+
+			  <h5>Start Metasploit Console</h5>
+			  <pre>
+				 <code>
+msfconsole
+				 </code>
+			  </pre>
+
+			  <h5>Stop Metasploit Database</h5>
+			  If you would like to cleanup and stop the database. This shouldn't be needed.
+			  <pre>
+				 <code>
+service postgresql stop
+				 </code>
+			  </pre>
+		   </p>
+	    </section>
+
+	    <section>
+		   <a href="/ctf/wiki">[wiki]</a>
+		   <a href="/ctf/letter-of-engagement.html">[letter]</a>
+		   <a href="/ctf/wiki/tools.html">[tools]</a>
+		   <a href="/ctf/wiki/flag-0/">[flag 0]</a>
+		   <a href="/ctf/wiki/flag-1/">[flag 1]</a>
+		   <a href="/ctf/wiki/flag-2/">[flag 2]</a>
+		   <a href="/ctf/wiki/flag-3/">[flag 3]</a>
+	    </section>
+	</body>
+</html>

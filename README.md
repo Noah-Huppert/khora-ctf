@@ -1,2 +1,20 @@
-# khora-ctf
+# Khôra CTF
 Container capture the flag activity.
+
+# Table Of Contents
+- [Overview](#overview)
+- [Run](#run)
+
+# Overview
+This was my final project for UMass CS 590A systems test and defense. It is a container based capture the flag activity. It aims to demonstrate how familiar security analysis techniques can be used on a container production environment. Docker Compose is used to emulate said container production environment.
+
+The CTF simulates a traditional client engagement with a fake company named "ACME Company". A letter of engagement is provided, and the rest is up to you. The CTF wiki however does provide full guides, including solutions, for each flag.
+
+# Run
+The entire CTF is provided as a Docker Compose setup. To run it:
+
+```
+docker-compose up -d --build
+```
+
+Then navigate to the CTF wiki on [127.0.0.1:1111](http://127.0.0.1:1111). This will explain everything and get you started.
