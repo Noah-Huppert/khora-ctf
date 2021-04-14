@@ -9,7 +9,7 @@ Container capture the flag activity.
 # Overview
 This was my final project for UMass CS 590A systems test and defense. It is a container based capture the flag activity. It aims to demonstrate how familiar security analysis techniques can be used on a container production environment. Docker Compose is used to emulate said container production environment.
 
-The CTF simulates a traditional client engagement with a fake company named "ACME Company". A letter of engagement is provided, and the rest is up to you. The CTF wiki however does provide full guides, including solutions, for each flag.
+The CTF simulates a traditional client engagement with a fake company named "ACME Company". A letter of engagement is provided, and the rest is up to you. The CTF wiki however does provide full guides, including solutions, for each flag. A `workbench` container is also provided with all the tools you will need to complete this CTF.
 
 # Run
 The entire CTF is provided as a Docker Compose setup. To run it:
