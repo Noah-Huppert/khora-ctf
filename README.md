@@ -4,6 +4,7 @@ Container capture the flag activity.
 # Table Of Contents
 - [Overview](#overview)
 - [Run](#run)
+- [Name](#name)
 
 # Overview
 This was my final project for UMass CS 590A systems test and defense. It is a container based capture the flag activity. It aims to demonstrate how familiar security analysis techniques can be used on a container production environment. Docker Compose is used to emulate said container production environment.
@@ -18,3 +19,6 @@ docker-compose up -d --build
 ```
 
 Then navigate to the CTF wiki on [127.0.0.1:1111](http://127.0.0.1:1111). This will explain everything and get you started.
+
+# Name
+Every technology project needs a "cool" name, usually something greek or mythology related. Khôra was a term used by the ancient Greek philospher Plato to describe a type of seperated space. Containers are also a sort of seperated space.
